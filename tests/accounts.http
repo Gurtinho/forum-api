@@ -1,0 +1,12 @@
+### CREATE USER
+POST http://localhost:8888/accounts/ HTTP/1.1
+Content-Type: application/json
+
+{
+	"name": "Mario Lane",
+	"username": "Jessie Webster",
+	"email": "haomjub@icpepo.pt",
+	"password": "123456"
+}
+
+###

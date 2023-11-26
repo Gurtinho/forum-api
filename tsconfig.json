@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    
+    "target": "esnext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "CommonJS",
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["./modules/*"],
+      "@routes/*": ["./routes/*"],
+      "@shared/*": ["./shared/*"],
+      "@middle/*": ["./middlewares/*"],
+      "@errors/*": ["./errors/*"],
+      "@utils/*": ["./utils/*"]
+    },
+    "resolveJsonModule": true,
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}

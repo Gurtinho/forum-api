@@ -1,0 +1,7 @@
+# Configurações para todos os arquivos
+root = true
+
+# Defina o estilo de indentação
+[*]
+indent_style = tab
+indent_size = 2
