@@ -1,21 +1,16 @@
-import { dataConnection } from "@shared/infra/typeorm/data-source"
-import { DataSource } from "typeorm"
 import request from "supertest"
+import { dataConnection } from "@shared/infra/typeorm/data-source"
 import { app } from "@shared/infra/http/app"
 
-let testConnection: DataSource
-
 describe('Create User Controller', () => {
-	beforeAll( async () => {
-		testConnection = await dataConnection.initialize()
-    await testConnection.driver.connect()
-    await testConnection.runMigrations()
+	beforeAll(async () => {
+		await dataConnection.initialize()
+		await dataConnection.runMigrations()
 	})
 
 	afterAll(async () => {
-		await testConnection.query('DROP SCHEMA public CASCADE;').catch(async () => {
-    	await testConnection.dropDatabase()
-		})
+		await dataConnection.dropDatabase()
+		await dataConnection.driver.disconnect()
 	})
 	
 	it('Should be able to create a new user', async () => {
@@ -25,6 +20,7 @@ describe('Create User Controller', () => {
 			email: 'got@vofi.io',
 			password: '26240588'
 		})
+		console.log(response)
 		expect(response.status).toBe(201)
 	})
 

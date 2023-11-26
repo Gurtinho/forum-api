@@ -10,7 +10,7 @@
     "typeorm-create": "ts-node-dev ./src/shared/infra/typeorm/create-migration.ts",
     "container": "ts-node-dev ./src/shared/infra/typeorm/run-container.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "test": "NODE_ENV=test jest --detectOpenHandles"
+    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
