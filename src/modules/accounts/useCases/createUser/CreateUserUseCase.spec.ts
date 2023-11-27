@@ -22,7 +22,6 @@ describe('Create Users', () => {
 		expect(user).toHaveProperty('id')
 		expect(user).toHaveProperty('email')
 		expect(user).toHaveProperty('password')
-		
 	})
 
 	it('Should not be able to create a new user if email already created', async () => {

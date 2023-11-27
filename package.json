@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --inspect=0.0.0.0:9229 -r tsconfig-paths/register --transpile-only --poll --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+		"build": "NODE_ENV=production && node src/index.js",
+    "dev": "NODE_ENV=development ts-node-dev --inspect=0.0.0.0:9229 -r tsconfig-paths/register --transpile-only --poll --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "typeorm-revert": "typeorm-ts-node-commonjs -d ./src/shared/infra/typeorm/data-source.ts migration:revert",
     "typeorm-run": "typeorm-ts-node-commonjs -d ./src/shared/infra/typeorm/data-source.ts migration:run",
     "typeorm-create": "ts-node-dev ./src/shared/infra/typeorm/create-migration.ts",

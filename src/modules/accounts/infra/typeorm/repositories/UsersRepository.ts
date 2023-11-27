@@ -12,9 +12,9 @@ export class UsersRepository implements IUsersRepository {
 		this.repository = dataConnection.getRepository(User)
 	}
 
-	async create({ name, username, email, password, avatar }: ICreateUserDTO): Promise<User> {
+	async create({ id, name, username, email, password, avatar }: ICreateUserDTO): Promise<User> {
 		const user = this.repository.create({
-			name, username, email, password, avatar
+			id, name, username, email, password, avatar
 		})
 		const userSaved = await this.repository.save(user)
 		return userSaved
@@ -22,6 +22,11 @@ export class UsersRepository implements IUsersRepository {
 
 	async findByEmail(email: string): Promise<User> {
 		const user = await this.repository.findOneBy({ email })
+		return user
+	}
+
+	async findById(id: string): Promise<User> {
+		const user = await this.repository.findOneBy({ id })
 		return user
 	}
 

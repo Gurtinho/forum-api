@@ -1,5 +1,5 @@
-import request from "supertest"
 import { dataConnection } from "@shared/infra/typeorm/data-source"
+import request from "supertest"
 import { app } from "@shared/infra/http/app"
 
 describe('Create User Controller', () => {
@@ -20,7 +20,6 @@ describe('Create User Controller', () => {
 			email: 'got@vofi.io',
 			password: '26240588'
 		})
-		console.log(response)
 		expect(response.status).toBe(201)
 	})
 
